@@ -48,7 +48,6 @@ linux-image-2.6-amd64
 lsof
 lvm2
 m4
-mdadm
 mlocate
 module-init-tools
 ncurses-term
