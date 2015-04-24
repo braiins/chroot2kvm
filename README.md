@@ -6,7 +6,7 @@ The implementation uses libguestfs and associated tools.
 # Limitations
 
 The scripts are relatively simple to modify. Currently, they support converting Debian Squeeze and Debian Wheezy.
-However, it is very simple provide custom sources lists or use them for other Linux distributions.
+Sources lists can be modified or even replaced to fit any Linux distribution.
 
 # Components
 
