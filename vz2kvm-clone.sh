@@ -38,7 +38,7 @@ part-init /dev/sda msdos
 part-add /dev/sda p 2048 -1
 pvcreate /dev/sdb
 vgcreate $VM_VG /dev/sdb
-vg-activate-all true 
+vg-activate-all true
 lvcreate lvswap $VM_VG 512
 lvcreate-free `basename $vm_root_disk_path` $VM_VG 100
 mkfs ext4 /dev/sda1
@@ -59,4 +59,3 @@ sleep 5
 fusermount -u $VM_ROOT_MNT_POINT
 echo "done, unmounted"
 # --- END - phase 1 ---
-

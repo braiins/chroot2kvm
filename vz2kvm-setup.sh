@@ -65,7 +65,7 @@ EOF
 
 guestfish --rw --network --add $bootdisk_path --add $maindisk_path <<EOF
 launch
-vg-activate-all true 
+vg-activate-all true
 mount $vm_root_disk_path /
 rm-f /etc/rc6.d/K00vzreboot
 cp /usr/share/sysvinit/inittab /etc/inittab
@@ -83,4 +83,3 @@ rm-f /etc/udev/rules.d/70-persistent-net.rules
 shutdown
 EOF
 # --- END - phase 2 ---
-

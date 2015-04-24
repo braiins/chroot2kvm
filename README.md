@@ -37,7 +37,7 @@ implemented in guestfish does not support all rsync options
 Guest fish has to be launched with --network:
 
     $ guestfish --network --add /dev/some-device
-  
+
 
     <fs> rsync-in rsync://192.168.122.1:2999/test/ / archive:true
 
@@ -47,12 +47,12 @@ Guest fish has to be launched with --network:
 The machine has:
 
   - `/boot` in separate partition
-  
+
 
 
 Example guestfish session:
 
-    launch  
+    launch
     vgcreate vg01 /dev/sdb
     vg-activate true vg01
     lvcreate lvswap  vg01 512
@@ -70,4 +70,3 @@ Rsync and unmount of the filesystem:
 
     rsync -aAHXvz --numeric-ids ./ /mnt/vz/
     fusermount -u /mnt/vz
-
