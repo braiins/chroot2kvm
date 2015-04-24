@@ -31,12 +31,12 @@ This cannot be used for host copying since the rsync client
 implemented in guestfish does not support all rsync options
 (only archive and deletedest
 
-  $ rsync --daemon --address=localhost --port=2999
+    $ rsync --daemon --address=localhost --port=2999
 
 
 Guest fish has to be launched with --network:
 
-  $ guestfish --network --add /dev/some-device
+    $ guestfish --network --add /dev/some-device
   
 
     <fs> rsync-in rsync://192.168.122.1:2999/test/ / archive:true
@@ -46,28 +46,28 @@ Guest fish has to be launched with --network:
 
 The machine has:
 
-  - boot in separate partition
+  - `/boot` in separate partition
   
 
 
 Example guestfish session:
 
-  launch  
-  vgcreate vg01 /dev/sdb
-  vg-activate true vg01
-  lvcreate lvswap  vg01 512
-  lvcreate-free lvroot vg01 100
-  mkfs ext4 /dev/vg01/lvroot
-  mkswap /dev/vg01/lvswap
-  mount /dev/vg01/lvroot /
+    launch  
+    vgcreate vg01 /dev/sdb
+    vg-activate true vg01
+    lvcreate lvswap  vg01 512
+    lvcreate-free lvroot vg01 100
+    mkfs ext4 /dev/vg01/lvroot
+    mkswap /dev/vg01/lvswap
+    mount /dev/vg01/lvroot /
 
 
 Mount machine filesystem:
 
-  guestmount --trace --add /dev/vg1/lvmachine --mount /dev/vgmachine01/lvroot /mnt/vz
+    guestmount --trace --add /dev/vg1/lvmachine --mount /dev/vgmachine01/lvroot /mnt/vz
 
 Rsync and unmount of the filesystem:
 
-  rsync -aAHXvz --numeric-ids ./ /mnt/vz/
-  fusermount -u /mnt/vz
+    rsync -aAHXvz --numeric-ids ./ /mnt/vz/
+    fusermount -u /mnt/vz
 
